@@ -8,3 +8,14 @@ Steps to run:
 2. Install bs4: pip install beautifulsoup4
 3. Install Flask: pip install Flask
 4. Install Requests: pip install requests
+
+
+### Run with Docker (locally)
+
+Install docker: https://docs.docker.com/get-docker/
+
+From project root run:
+
+    docker-compose up
+    
+Open app on http://localhost:5000/
