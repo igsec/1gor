@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>1gor app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/icons.min.css') }}">
+    <style type="text/css">
+    tr:hover{
+    background:silver;
+    transition:0.7;
+    }
+    </style>
+
+
+</head>
+
+<body data-sidebar="dark">
+    <div id="layout-wrapper">
+
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <div class="navbar-brand-box">
+                        <a href="/" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="static/images/logo-sm-light.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="static/images/logo-light.png" alt="" height="20">
+                            </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                        <i class="mdi mdi-backburger"></i>
+                    </button>
+
+                </div>
+
+            </div>
+        </header>
+
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+
+                <div id="sidebar-menu">
+
+                    <ul class="metismenu list-unstyled" id="side-menu">
+
+
+
+                         <li>
+                            <a href="/rozetka" class=" waves-effect">
+                                <i class="mdi mdi-apps"></i>
+                                <span>Rozetka</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/fozzy" class=" waves-effect">
+                                <i class="mdi mdi-apps"></i>
+                                <span>Fozzy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/bigl" class=" waves-effect">
+                                <i class="mdi mdi-apps"></i>
+                                <span>Bigl</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18">1gor buckwheat parse</h4>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="p-lg-3">
+                                <h5 class="mt-0 mb-3">Fozzy</h5>
+                                <table style="width:100%;">
+                                    <tbody >
+                                    {% for com in sol %}
+                                    <tr>
+                                        <td><a style="text-decoration: none; color: black;" href="{{com['href']}}" class="content">{{com['title']}}</a></td>
+                                        <td style="color: black;" class="container0fluid text-center">{{com['cost']}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            2021 © 1gor
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+{% block javascript %}
+    <script src="{{url_for('static',filename='/libs/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static',filename='/libs/metismenu/metisMenu.min.js')}}"></script>
+    <script src="{{url_for('static',filename='/libs/app.js')}}"></script>
+{% endblock %}
+</body>
+
+</html>
